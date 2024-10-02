@@ -4,6 +4,8 @@ $paragraph = $_GET["paragraph"];
 
 $badWord = $_GET["badWord"];
 
+$censuredParagraph = str_ireplace($badWord,"***",$paragraph);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,20 @@ $badWord = $_GET["badWord"];
         <div class="row">
             <div class="col-12 text-center">
                 <h1 class="mb-5">PARAGRAFO</h1>
-                <p><?php echo $paragraph ?></p>
+                <p class="mb-5"><?php echo $paragraph ?></p>
+            </div>
+            <div class="col-12">
+                <span>Il paragfrago è lungo <?php echo strlen($paragraph)?> caratteri</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>PARAGRAFO CENSURATO</h1>
+                <p class="mb-5"><?php echo $censuredParagraph ?></p>
+            </div>
+            <div class="col-12">
+                <span>Il paragfrago è lungo <?php echo strlen($censuredParagraph)?> caratteri</span>
             </div>
         </div>
     </div>
